@@ -145,6 +145,13 @@ def process_video():
                 ratio = round(img_height / img_width, 2)
                 if ratio != ratio_hd:
                     clip = crop_image(img_height, img_width, file)
+                else:
+                    # if ratio == ratio_hd, it's necessary to create the first clip entry
+                    # clip = ImageClip(app.config['UPLOAD_FOLDER'] + file)
+                    clip = crop_image(img_height, img_width, file)
+                    
+
+                print(f"DEBUG: {file_exif.has_exif} {img_height} {img_width} {clip}")
 
                 if file_exif.has_exif:
                     try:
