@@ -156,6 +156,52 @@ When processing the video, the name of the generated output video file will also
 Users who have questions that the `FAQ` section failed to answer can send messages with questions or suggestions to the contact email `marcellestp@gmail.com`.
 
 
+# To Deploy via Virtual Environment
+- Create a Python Virtual Environment
+```
+python3 -m venv ~/.venv/InVideo
+```
+- Load the Virtual Environment
+```
+source ~/.venv/InVideo/bin/activate
+(InVideo) user@local ~ %
+```
+- Clone the repo
+```
+git clone https://github.com/marcellestp/InVideo.git
+cd InVideo
+```
+- Install the Python Modules via Requirements.txt
+```
+pip install -r requirements.txt
+```
+- Start the Application
+```
+flask run --debug
+...
+* Running on http://127.0.0.1:5000
+```
+
+# To Deploy the Container Using Podman
+- Install podman
+```
+dnf install podman -y
+```
+- Execute the container
+```
+podman run -d --rm --name invideo -p 5000:5000 ghcr.io/waldirio/invideo:latest
+```
+
+And now, you should be able to access your application via http://localhost:5000
+
+
+### You can also pull the image using docker
+- To pull the image
+```
+docker pull ghcr.io/waldirio/invideo:latest
+```
+
+
 # Reference
 - BootStrap
     - https://getbootstrap.com/
